@@ -1,0 +1,458 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/bcoe/crapify"
+
+    >crapify (v1.2.0)</a>
+</h1>
+<h4>a proxy for simulating slow, spotty, HTTP connections</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.crapify">module crapify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crapify">
+            function <span class="apidocSignatureSpan"></span>crapify
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crappy_stream">
+            function <span class="apidocSignatureSpan">crapify.</span>crappy_stream
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">crapify.</span>crapify.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">crapify.</span>crappy_stream.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.crapify.crapify">module crapify.crapify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crapify.crapify">
+            function <span class="apidocSignatureSpan">crapify.</span>crapify
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.crapify.crapify.prototype">module crapify.crapify.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crapify.prototype.start">
+            function <span class="apidocSignatureSpan">crapify.crapify.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crapify.prototype.stop">
+            function <span class="apidocSignatureSpan">crapify.crapify.prototype.</span>stop
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.crapify.crappy_stream">module crapify.crappy_stream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crappy_stream.crappy_stream">
+            function <span class="apidocSignatureSpan">crapify.</span>crappy_stream
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crappy_stream.super_">
+            function <span class="apidocSignatureSpan">crapify.crappy_stream.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.crapify.crappy_stream.prototype">module crapify.crappy_stream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crappy_stream.prototype._flush">
+            function <span class="apidocSignatureSpan">crapify.crappy_stream.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.crapify.crappy_stream.prototype._transform">
+            function <span class="apidocSignatureSpan">crapify.crappy_stream.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, next)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.crapify" id="apidoc.module.crapify">module crapify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crapify" id="apidoc.element.crapify.crapify">
+        function <span class="apidocSignatureSpan"></span>crapify
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Crapify(opts) {
+  // set default options if none are specified.
+  _.extend(this, {
+    port: 5000,
+    speed: 5000,
+    concurrency: 10,
+    dropFrequency: 0,
+    sleep: 0,
+    close: false
+  }, opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crappy_stream" id="apidoc.element.crapify.crappy_stream">
+        function <span class="apidocSignatureSpan">crapify.</span>crappy_stream
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CrappyStream(opts) {
+  this.dropFrequency = opts.dropFrequency;
+  this.byteCount = parseInt(Math.random() * opts.dropFrequency);
+  Transform.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.crapify.crapify" id="apidoc.module.crapify.crapify">module crapify.crapify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crapify.crapify" id="apidoc.element.crapify.crapify.crapify">
+        function <span class="apidocSignatureSpan">crapify.</span>crapify
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Crapify(opts) {
+  // set default options if none are specified.
+  _.extend(this, {
+    port: 5000,
+    speed: 5000,
+    concurrency: 10,
+    dropFrequency: 0,
+    sleep: 0,
+    close: false
+  }, opts)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.crapify.crapify.prototype" id="apidoc.module.crapify.crapify.prototype">module crapify.crapify.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crapify.prototype.start" id="apidoc.element.crapify.crapify.prototype.start">
+        function <span class="apidocSignatureSpan">crapify.crapify.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  var _this = this;
+
+  this.server = proxy(http.createServer(), {
+    transformRequest: [crappyStreamFactory, throttleFactory],
+    transformResponse: [crappyStreamFactory, throttleFactory],
+    sleep: this.sleep,
+    concurrency: this.concurrency,
+    close: this.close
+  });
+
+  this.server.listen(this.port, function () {
+    console.log(chalk.yellow(&#x27;proxy serving on :&#x27; + _this.port + &#x27; at &#x27; + _this.speed + &#x27; bytes/sec, max concurrency = &#x27; + _this
+.concurrency + &#x27;, dropped bytes frequency = &#x27; + _this.dropFrequency));
+  });
+
+  this.server.on(&#x27;connection&#x27;, function (socket) {
+    _this.socket = socket;
+  });
+
+  function crappyStreamFactory () {
+    return new CrappyStream({
+      dropFrequency: _this.dropFrequency
+    });
+  }
+
+  function throttleFactory () {
+    return new Throttle(_this.speed);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crapify.prototype.stop" id="apidoc.element.crapify.crapify.prototype.stop">
+        function <span class="apidocSignatureSpan">crapify.crapify.prototype.</span>stop
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function (cb) {
+  var _this = this;
+
+  this.server.close(function () {
+    _this.socket.destroy();
+    return cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.crapify.crappy_stream" id="apidoc.module.crapify.crappy_stream">module crapify.crappy_stream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crappy_stream.crappy_stream" id="apidoc.element.crapify.crappy_stream.crappy_stream">
+        function <span class="apidocSignatureSpan">crapify.</span>crappy_stream
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CrappyStream(opts) {
+  this.dropFrequency = opts.dropFrequency;
+  this.byteCount = parseInt(Math.random() * opts.dropFrequency);
+  Transform.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crappy_stream.super_" id="apidoc.element.crapify.crappy_stream.super_">
+        function <span class="apidocSignatureSpan">crapify.crappy_stream.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.crapify.crappy_stream.prototype" id="apidoc.module.crapify.crappy_stream.prototype">module crapify.crappy_stream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crappy_stream.prototype._flush" id="apidoc.element.crapify.crappy_stream.prototype._flush">
+        function <span class="apidocSignatureSpan">crapify.crappy_stream.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_flush = function (done) {
+  return done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.crapify.crappy_stream.prototype._transform" id="apidoc.element.crapify.crappy_stream.prototype._transform">
+        function <span class="apidocSignatureSpan">crapify.crappy_stream.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_transform = function (chunk, encoding, next) {
+  if (this.dropFrequency !== 0) {
+    var i = 0,
+      ii = 0,
+      buffer = new Buffer(chunk.length);
+
+    // Iterate over the bytes of a chunk with `i`, and copy a byte into
+    // a temporary buffer at index `ii` if it is not to be dropped.
+    // Note that this method drops bytes in a uniform distribution.
+    for (; i &#x3c; chunk.length; i++) {
+      this.byteCount++;
+      if (this.byteCount % this.dropFrequency === 0) {
+        continue;
+      }
+      buffer[ii] = chunk[i];
+      ii++;
+    }
+
+    // Since the buffer may be shorter due to dropped bytes, it is needed
+    // to slice off the unassigned bytes at the end of the buffer.
+    this.push(buffer.slice(0, ii));
+
+  } else {
+    // Skip iterating over bytes if nothing is to be dropped, just write
+    // it and get it over with.
+    this.push(chunk);
+  }
+
+  return next();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
